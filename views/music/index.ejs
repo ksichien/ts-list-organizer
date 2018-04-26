@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <% include ../partials/head %>
+  <body class='text-center'>
+    <div class='cover-container d-flex w-100 h-100 p-3 mx-auto flex-column'>
+      <% include ../partials/header %>
+      <main class='inner cover' role='main'>
+        <h1 class='cover-heading'>Music Lists</h1><br>
+        <table class='table table-bordered table-dark table-striped'>
+          <thead>
+            <tr>
+              <th scope='col'>Artist</th>
+              <th scope='col'>Albums</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let i = 0; i < artists.length; i++) { %>
+            <tr>
+              <td>
+                <%= artists[i].name %>
+              </td>
+              <td>
+                  <%= artists[i].albums[0] %>
+                  <% for(let j = 1; j < artists[i].albums.length; j++) { %>
+                    | <%= artists[i].albums[j] %>
+                  <% } %>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </main>
+      <% include ../partials/footer %>
+      <% include ../partials/scripts %>
+    </div>
+  </body>
+</html>

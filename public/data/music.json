@@ -1,0 +1,26 @@
+{
+  "artists": [
+    {
+      "name": "Boris",
+      "albums": [
+        "Akuma No Uta",
+        "Heavy Rocks",
+        "Pink"
+      ]
+    },
+    {
+      "name": "Daughter",
+      "albums": [
+        "If You Leave",
+        "Not To Disappear"
+      ]
+    },
+    {
+      "name": "Unwound",
+      "albums": [
+        "Challenge for a Civilized Society",
+        "Self Titled"
+      ]
+    }
+  ]
+}

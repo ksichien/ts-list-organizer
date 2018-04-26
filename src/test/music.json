@@ -1,0 +1,17 @@
+{
+  "artists": [
+    {
+      "name": "Artist 1",
+      "albums": [
+        "Album 1"
+      ]
+    },
+    {
+      "name": "Artist 2",
+      "albums": [
+        "Album 2",
+        "Album 3"
+      ]
+    }
+  ]
+}
