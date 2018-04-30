@@ -1,9 +1,7 @@
 import { Request, Response } from 'express'
 
 class rootController {
-  constructor() {    
-    this.index = this.index.bind(this)
-  }
+  constructor() {}
 
   public index(req: Request, res: Response) {
     let navclass = 'nav-home'
