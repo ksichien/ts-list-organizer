@@ -17,7 +17,7 @@ class musicModel {
     else {
       list.artists[artistIndex].albums.push(album)
     }
-    list = this.sortList(list)
+    this.sortList(list)
     this.writeList(JSON.stringify(list), jsonFile)
   }
 
@@ -40,8 +40,15 @@ class musicModel {
     return raw
   }
 
-  private sortList(list) {
-    return list
+  private sortList(list): void {
+    list.artists.sort((a, b) => {
+      let a_name = a.name.toLowerCase()
+      let b_name = b.name.toLowerCase()
+      return a_name < b_name ? -1 : a_name > b_name ? 1 : 0
+    })
+    for(let i = 0; i < list.artists.length; i++) {
+      list.artists[i].albums.sort()
+    }
   }
 
   private writeList(data: string, jsonFile: string): void {
