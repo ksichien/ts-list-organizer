@@ -1,6 +1,15 @@
 import * as fs from 'fs'
 import * as path from 'path'
 
+interface artistList {
+  name: string,
+  albums: string[]
+}
+
+interface musicList {
+  artists: artistList[]
+}
+
 class musicModel {
   public constructor() {
     this.getList = this.getList.bind(this)
@@ -21,7 +30,7 @@ class musicModel {
     this.writeList(JSON.stringify(list), jsonFile)
   }
 
-  public getList(jsonFile: string): {} {
+  public getList(jsonFile: string): artistList[] {
     let list = this.readList(jsonFile)
     return list.artists
   }
@@ -35,7 +44,7 @@ class musicModel {
     return list.artists.length
   }
 
-  private readList(jsonFile: string) {
+  private readList(jsonFile: string): musicList {
     let raw = JSON.parse(fs.readFileSync(jsonFile, 'utf-8'))
     return raw
   }
