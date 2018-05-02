@@ -1,0 +1,45 @@
+---
+- hosts: default
+  become: yes
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+  - name: resynchronize the package index files from their sources
+    apt:
+      update_cache: yes
+  - name: remove useless packages from the cache
+    apt:
+      autoclean: yes
+  - name: remove dependencies that are no longer required
+    apt:
+      autoremove: yes
+  - name: install docker prerequisites
+    apt:
+      name: "{{ item }}"
+      state: latest
+    with_items: ['apt-transport-https', 'ca-certificates', 'curl', 'gnupg2', 'software-properties-common']
+  - name: add docker apt key
+    apt_key:
+      url: https://download.docker.com/linux/debian/gpg
+      state: present
+  - name: add docker apt repository
+    apt_repository:
+      repo: deb https://download.docker.com/linux/debian stretch stable
+      update_cache: yes
+  - name: add jenkins apt key
+    apt_key:
+      url: https://pkg.jenkins.io/debian/jenkins.io.key
+      state: present
+  - name: add jenkins apt repository
+    apt_repository:
+      repo: deb http://pkg.jenkins.io/debian-stable binary/
+      update_cache: yes
+  - name: install docker and jenkins
+    apt:
+      name: "{{ item }}"
+      state: latest
+    with_items: ['docker-ce', 'jenkins']
+  - name: build the docker image
+    command: docker build -t tlo /vagrant
+  - name: run the docker container
+    command: docker run -p 80:3000 -d tlo
