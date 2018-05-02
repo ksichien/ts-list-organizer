@@ -1,7 +1,7 @@
 import 'mocha'
+import { expect } from 'chai'
 import * as fs from 'fs'
 import * as path from 'path'
-import { expect } from 'chai'
 import musicModel from '../models/music'
 
 let jsonFile = path.join(__dirname, 'music.json')

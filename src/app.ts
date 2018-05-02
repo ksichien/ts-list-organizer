@@ -1,5 +1,6 @@
 import * as express from 'express'
 import * as morgan from 'morgan'
+import * as bodyParser from 'body-parser'
 import * as path from 'path'
 import * as routes from './config/routes'
 
@@ -18,6 +19,9 @@ class App {
     this.app.set('port', process.env.PORT || port)
     // logging
     this.app.use(morgan('dev'))
+    // body parser middleware
+    this.app.use(bodyParser.json())
+    this.app.use(bodyParser.urlencoded({extended: true}))
     // view engine
     this.app.set('views', path.join(__dirname, '..', 'views'))
     this.app.set('view engine', 'ejs')

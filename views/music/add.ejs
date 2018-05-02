@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <% include ../partials/head %>
+  <body class='text-center'>
+    <div class='cover-container d-flex w-100 h-100 p-3 mx-auto flex-column'>
+      <% include ../partials/header %>
+      <main class='inner cover' role='main'>
+        <h1 class='cover-heading'>Add a new artist or album</h1>
+        <form class='needs-validation' action='create', method='post'>
+          <div class='row'>
+            <div class='col-md-6'>
+              <label for='artistName'>Artist Name</label>
+              <input id='artistName' name='artistName'autofocus='true' class='form-control' required='' type='text'>
+            </div>
+            <div class='col-md-6'>
+              <label for='albumName'>Album Name</label>
+              <input id='albumName' name='albumName' class='form-control' required='' type='text'>
+            </div>
+          </div>
+          <button class='btn btn-lg btn-dark btn-music-new' type='submit'>Add to the list</button>
+        </form>
+      </main>
+      <% include ../partials/footer %>
+      <% include ../partials/scripts %>
+    </div>
+  </body>
+</html>

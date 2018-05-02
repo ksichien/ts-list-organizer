@@ -9,16 +9,6 @@ a:hover {
   color: #fff;
 }
 
-/* Custom default button */
-.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #fff;
-  border: .05rem solid #fff;
-}
-
 /*
  * Base structure
  */
@@ -39,6 +29,15 @@ body {
 
 .cover-container {
   max-width: 42em;
+}
+
+.btn-music-index {
+  float: right;
+  margin-bottom: 0.5rem;
+}
+
+.btn-music-new {
+  margin-top: 1rem;
 }
 
 /*
@@ -89,10 +88,6 @@ body {
  */
 .cover {
   padding: 0 1.5rem;
-}
-.cover .btn-lg {
-  padding: .75rem 1.25rem;
-  font-weight: 700;
 }
 
 /*

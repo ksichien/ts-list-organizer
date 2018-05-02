@@ -1,17 +1,11 @@
-import { Request, Response } from 'express'
+import { Request, Response, NextFunction } from 'express'
 
-class rootController {
-  constructor() {}
-
-  public index(req: Request, res: Response) {
-    let navclass = 'nav-home'
-    res.render('index', { navclass: navclass })
-  }
-
-  public about(req: Request, res: Response) {
-    let navclass = 'nav-about'
-    res.render('about', { navclass: navclass })
-  }
+export let index = (req: Request, res: Response, next: NextFunction) => {
+  let navclass = 'nav-home'
+  res.render('index', { navclass: navclass })
 }
 
-export default new rootController()
+export let about = (req: Request, res: Response, next: NextFunction) => {
+  let navclass = 'nav-about'
+  res.render('about', { navclass: navclass })
+}
