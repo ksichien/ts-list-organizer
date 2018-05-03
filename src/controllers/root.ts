@@ -1,11 +1,11 @@
 import { Request, Response, NextFunction } from 'express'
 
 export let index = (req: Request, res: Response, next: NextFunction) => {
-  let navclass = 'nav-home'
+  let navclass: string = 'nav-home'
   res.render('index', { navclass: navclass })
 }
 
 export let about = (req: Request, res: Response, next: NextFunction) => {
-  let navclass = 'nav-about'
+  let navclass: string = 'nav-about'
   res.render('about', { navclass: navclass })
 }

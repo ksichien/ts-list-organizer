@@ -11,16 +11,11 @@ interface musicList {
 }
 
 class musicModel {
-  public constructor() {
-    this.getList = this.getList.bind(this)
-    this.addToList = this.addToList.bind(this)
-  }
-
-  public addToList(artist: string, album: string, jsonFile: string): void {
-    let list = this.readList(jsonFile)
-    let artistIndex = this.getArtistIndex(list, artist)
+  public addToList(artist: string, album: string, jsonFile: string): artistList[] {
+    let list: musicList = this.readList(jsonFile)
+    let artistIndex: number = this.getArtistIndex(list, artist)
     if (artistIndex == list.artists.length) {
-      let newArtist = { 'name': artist, 'albums': [ album ] }
+      let newArtist: artistList = { 'name': artist, 'albums': [ album ] }
       list.artists.push(newArtist)
     }
     else {
@@ -28,15 +23,16 @@ class musicModel {
     }
     this.sortList(list)
     this.writeList(JSON.stringify(list), jsonFile)
-  }
-
-  public getList(jsonFile: string): artistList[] {
-    let list = this.readList(jsonFile)
     return list.artists
   }
 
-  private getArtistIndex(list, artist: string): number {
-    for (let index = 0; index < list.artists.length; index++) {
+  public getList(jsonFile: string): artistList[] {
+    let list: musicList = this.readList(jsonFile)
+    return list.artists
+  }
+
+  private getArtistIndex(list: musicList, artist: string): number {
+    for (let index: number = 0; index < list.artists.length; index++) {
       if (list.artists[index].name == artist) {
         return index
       }
@@ -45,18 +41,18 @@ class musicModel {
   }
 
   private readList(jsonFile: string): musicList {
-    let raw = JSON.parse(fs.readFileSync(jsonFile, 'utf-8'))
+    let raw: musicList = JSON.parse(fs.readFileSync(jsonFile, 'utf-8'))
     return raw
   }
 
-  private sortList(list): void {
+  private sortList(list: musicList): void {
     list.artists.sort((a, b) => {
-      let a_name = a.name.toLowerCase()
-      let b_name = b.name.toLowerCase()
-      return a_name < b_name ? -1 : a_name > b_name ? 1 : 0
+      let aLowerCase: string = a.name.toLowerCase()
+      let bLowerCase: string = b.name.toLowerCase()
+      return aLowerCase < bLowerCase ? -1 : aLowerCase > bLowerCase ? 1 : 0
     })
-    for(let i = 0; i < list.artists.length; i++) {
-      list.artists[i].albums.sort()
+    for(let index: number = 0; index < list.artists.length; index++) {
+      list.artists[index].albums.sort()
     }
   }
 
