@@ -2,11 +2,11 @@ import { Request, Response, NextFunction } from 'express'
 import * as path from 'path'
 import musicModel from '../models/music'
 
-export let navclass: string = 'nav-music'
-export let jsonFile: string = path.join('public', 'data', 'music.json')
+export const navclass: string = 'nav-music'
+export const jsonFile: string = path.join('public', 'data', 'music.json')
 
 export let index = (req: Request, res: Response, next: NextFunction) => {
-  let artists = musicModel.getList(jsonFile)
+  const artists = musicModel.getList(jsonFile)
   res.render('music/index', { artists: artists, navclass: navclass })
 }
 
@@ -15,6 +15,6 @@ export let add = (req: Request, res: Response, next: NextFunction) => {
 }
 
 export let create = (req: Request, res: Response, next: NextFunction) => {
-  let artists = musicModel.addToList(req.body.artistName, req.body.albumName, jsonFile)
+  const artists = musicModel.addToList(req.body.artistName, req.body.albumName, jsonFile)
   res.render('music/index', { artists: artists, navclass: navclass })
 }

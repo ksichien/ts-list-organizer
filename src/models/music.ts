@@ -27,7 +27,7 @@ class musicModel {
   }
 
   public getList(jsonFile: string): artistList[] {
-    let list: musicList = this.readList(jsonFile)
+    const list: musicList = this.readList(jsonFile)
     return list.artists
   }
 
@@ -41,7 +41,7 @@ class musicModel {
   }
 
   private readList(jsonFile: string): musicList {
-    let raw: musicList = JSON.parse(fs.readFileSync(jsonFile, 'utf-8'))
+    const raw: musicList = JSON.parse(fs.readFileSync(jsonFile, 'utf-8'))
     return raw
   }
 
