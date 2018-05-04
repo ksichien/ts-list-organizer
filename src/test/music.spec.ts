@@ -36,6 +36,11 @@ describe('addToList', () => {
     expect(list[1].name).to.equal('Artist B')
     expect(list[1].albums[0]).to.equal('Album 2')
   })
+  it('should add album 2 to artist C', () => {
+    const list = musicModel.addToList('Artist C', 'Album 2', jsonFile)
+    expect(list[1].name).to.equal('Artist C')
+    expect(list[1].albums[0]).to.equal('Album 2')
+  })
   it('should add album 4 to artist C', () => {
     const list = musicModel.addToList('Artist C', 'Album 4', jsonFile)
     expect(list[1].name).to.equal('Artist C')
