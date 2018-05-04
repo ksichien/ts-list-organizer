@@ -64,9 +64,31 @@ describe('removeFromList', () => {
     fs.writeFileSync(jsonFile, JSON.stringify(data), 'utf-8')
   })
   it('should remove artist A and album 1', () => {
-
+    const list = musicModel.removeFromList('Artist A', 'Album 1', jsonFile)
+    expect(list[0].name).to.equal('Artist B')
+    expect(list[0].albums[0]).to.equal('Album 2')
   })
   it('should remove album 3 from artist B', () => {
-
+    const list = musicModel.removeFromList('Artist B', 'Album 3', jsonFile)
+    expect(list[1].name).to.equal('Artist B')
+    expect(list[1].albums[1]).to.equal('Album 4')
+  })
+  it('shouldn\'t remove a non existent artist', () => {
+    const list = musicModel.removeFromList('Artist C', 'Album 5', jsonFile)
+    expect(list[0].name).to.equal('Artist A')
+    expect(list[0].albums[0]).to.equal('Album 1')
+    expect(list[1].name).to.equal('Artist B')
+    expect(list[1].albums[0]).to.equal('Album 2')
+    expect(list[1].albums[1]).to.equal('Album 3')
+    expect(list[1].albums[2]).to.equal('Album 4')
+  })
+  it('shouldn\'t remove a non existent album', () => {
+    const list = musicModel.removeFromList('Artist B', 'Album 5', jsonFile)
+    expect(list[0].name).to.equal('Artist A')
+    expect(list[0].albums[0]).to.equal('Album 1')
+    expect(list[1].name).to.equal('Artist B')
+    expect(list[1].albums[0]).to.equal('Album 2')
+    expect(list[1].albums[1]).to.equal('Album 3')
+    expect(list[1].albums[2]).to.equal('Album 4')
   })
 })
