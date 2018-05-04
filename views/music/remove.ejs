@@ -5,8 +5,8 @@
     <div class='cover-container d-flex w-100 h-100 p-3 mx-auto flex-column'>
       <% include ../partials/header %>
       <main class='inner cover' role='main'>
-        <h1 class='cover-heading'>Add a new artist or album</h1>
-        <form class='needs-validation' action='create', method='post'>
+        <h1 class='cover-heading'>Remove an existing artist or album</h1>
+        <form class='needs-validation' action='destroy', method='post'>
           <div class='row'>
             <div class='col-md-6'>
               <label for='artistName'>Artist Name</label>
@@ -17,7 +17,7 @@
               <input id='albumName' name='albumName' class='form-control' type='text' required>
             </div>
           </div>
-          <button class='btn btn-lg btn-dark btn-music-edit' type='submit'>Add to the list</button>
+          <button class='btn btn-lg btn-dark btn-music-edit' type='submit'>Remove from the list</button>
         </form>
       </main>
       <% include ../partials/footer %>

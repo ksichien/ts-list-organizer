@@ -18,3 +18,12 @@ export let create = (req: Request, res: Response, next: NextFunction) => {
   const artists = musicModel.addToList(req.body.artistName, req.body.albumName, jsonFile)
   res.render('music/index', { artists: artists, navclass: navclass })
 }
+
+export let remove = (req: Request, res: Response, next: NextFunction) => {
+  res.render('music/remove', { navclass: navclass })
+}
+
+export let destroy = (req: Request, res: Response, next: NextFunction) => {
+  const artists = musicModel.removeFromList(req.body.artistName, req.body.albumName, jsonFile)
+  res.render('music/index', { artists: artists, navclass: navclass })
+}

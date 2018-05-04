@@ -32,11 +32,10 @@ body {
 }
 
 .btn-music-index {
-  float: right;
   margin-bottom: 0.5rem;
 }
 
-.btn-music-new {
+.btn-music-edit {
   margin-top: 1rem;
 }
 

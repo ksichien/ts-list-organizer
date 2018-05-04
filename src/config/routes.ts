@@ -11,3 +11,6 @@ router.get('/about', rootController.about)
 router.get('/music', musicController.index)
 router.get('/music/add', musicController.add)
 router.post('/music/create', musicController.create)
+router.get('/music/remove', musicController.remove)
+router.post('/music/destroy', musicController.destroy)
+
