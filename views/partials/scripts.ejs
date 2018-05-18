@@ -2,7 +2,15 @@
 <script src='/js/jquery.min.js'></script>
 <script src='/js/umd/popper.min.js'></script>
 <script src='/js/bootstrap.min.js'></script>
+<!-- datatables javascripts -->
+<script src='/js/jquery.dataTables.js'></script>
+<script src='/js/dataTables.bootstrap4.js'></script>
+<script src='/js/dataTables.responsive.min.js'></script>
+<script src='/js/responsive.bootstrap4.min.js'></script>
 <!-- custom javascripts -->
 <script>
-    document.getElementById('<%= navclass %>').classList.add('active')
+  $(document).ready(() => {
+    $('#music-table').DataTable()
+  })
+  document.getElementById('<%= navclass %>').classList.add('active')
 </script>

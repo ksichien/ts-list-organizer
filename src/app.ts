@@ -30,6 +30,13 @@ class App {
     this.app.use('/js', express.static(path.join(__dirname, '..', 'node_modules', 'jquery', 'dist'))) // redirect jquery JS
     this.app.use('/js', express.static(path.join(__dirname, '..', 'node_modules', 'popper.js', 'dist'))) // redirect popper JS
     this.app.use('/js', express.static(path.join(__dirname, '..', 'node_modules', 'bootstrap', 'dist', 'js'))) // redirect bootstrap JS
+    // datatables css/js
+    this.app.use('/css', express.static(path.join(__dirname, '..', 'node_modules', 'datatables.net-bs4', 'css')))
+    this.app.use('/css', express.static(path.join(__dirname, '..', 'node_modules', 'datatables.net-responsive-bs4', 'css')))
+    this.app.use('/js', express.static(path.join(__dirname, '..', 'node_modules', 'datatables.net', 'js')))
+    this.app.use('/js', express.static(path.join(__dirname, '..', 'node_modules', 'datatables.net-bs4', 'js')))
+    this.app.use('/js', express.static(path.join(__dirname, '..', 'node_modules', 'datatables.net-responsive', 'js')))
+    this.app.use('/js', express.static(path.join(__dirname, '..', 'node_modules', 'datatables.net-responsive-bs4', 'js')))
     // custom css/js
     this.app.use('/stylesheets', express.static(path.join(__dirname, '..', 'public', 'stylesheets')))
     this.app.use('/javascripts' ,express.static(path.join(__dirname, '..', 'public', 'javascripts')))
